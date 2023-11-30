@@ -73,6 +73,14 @@ public class Qes7 {
 				//4教科分ループし下記を表示
 					System.out.println(subjects[j] + "の平均点は" + SubjectAverage[j] + "点です");
 				}
+				double TotalAverage = 0;
+				for (int j = 0; j < 4; j++) {
+                    TotalAverage += SubjectAverage[j];
+                }
+                TotalAverage = TotalAverage / 4;
+
+                // 全体の平均点を表示
+                System.out.println("全体の平均点は" + TotalAverage + "点です");
 			}
 		}
 		scanner.close();

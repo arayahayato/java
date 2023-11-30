@@ -14,20 +14,21 @@ public class Qes1_3 {
 		String name = scanner.nextLine();
 		//ユーザーが入力した名前を変数nameに格納
 		if (name.length() > 10) {
-		//名前が10文字以上の際に下記の表示
+			//名前が10文字以上の際に下記の表示
 			System.out.println("名前を10文字以内にしてください");
 		} else if (name == null || name.isEmpty()) {
-		//名前がnullもしくは空白の際に下記の表示
+			//名前がnullもしくは空白の際に下記の表示
 			System.out.println("名前を入力してください");
 		} else if (!name.matches("^[A-Za-z0-9]+$")) {
-		//半角英数字以外の入力の際に下記の表示
+			//半角英数字以外の入力の際に下記の表示
 			System.out.println("半角英数字のみで名前を入力してください");
 		} else {
-		//それ以外は下記の表示
+			//それ以外は下記の表示
 			System.out.println("ユーザー名「" + name + "」を登録しました");
 			startRockPeperScissors(name);
 			//RockPeperScissorsメソッドを開始　変数のnameをこのメソッドでも使用するために格納
 		}
+		scanner.close();
 	}
 
 	private static void startRockPeperScissors(String name) {
@@ -40,7 +41,7 @@ public class Qes1_3 {
 		int janken_win = 0;
 		//変数janken_winを宣言してジャンケンに勝った回数を格納する場所を作る
 		while (true) {
-		//returnまで無限ループ
+			//returnまで無限ループ
 			try {
 				long input = scanner.nextInt();
 				janken_num++;
@@ -55,7 +56,7 @@ public class Qes1_3 {
 					System.out.println("無効な入力です");
 					continue;
 					//0.1.２以外が入力された際にエラー文を表示してループを継続
-				};
+				}
 
 				Random rand = new Random();
 				//Randamクラス（ランダムにしてくれる）を使用し変数randに格納
@@ -71,27 +72,28 @@ public class Qes1_3 {
 				;
 				if ((input == 0) && (computer == 1) || (input == 1) && (computer == 2)
 						|| (input == 2) && (computer == 0)) {
-				//コンピューターがユーザーに負けると下記を表示
+					//コンピューターがユーザーに負けると下記を表示
 					System.out.println("やるやん\n次は俺にリベンジさせて");
 					janken_win++;
 					//勝利した回数をカウント
 				} else if ((input == 1) && (computer == 0)) {
-				//ユーザーがグーに負けると下記を表示
+					//ユーザーがグーに負けると下記を表示
 					System.out.println("俺の勝ち\n負けは次につながるチャンスです！\nネバーギブアップ");
 				} else if ((input == 0) && (computer == 2)) {
-				//ユーザーがパーに負けると下記を表示
+					//ユーザーがパーに負けると下記を表示
 					System.out.println("俺の勝ち\nなんで負けたか、明日まで考えといてください。\nそしたら何か見えてくるはずです");
 				} else if ((input == 2) && (computer == 1)) {
-				//ユーザーがチョキに負けると下記を表示
+					//ユーザーがチョキに負けると下記を表示
 					System.out.println("俺の勝ち！\nたかがジャンケンじゃん、そう思ってないですか？\nそれやったら、次も俺が勝つよ");
 				} else {
-				//それ以外（あいこ）の場合は下記を表示
+					//それ以外（あいこ）の場合は下記を表示
 					System.out.println("DRAW あいこもう一回しましょ");
 				}
 				;
 				if (janken_win >= 1) {
-				//ジャンケンに１回かつと下記を表示しループを終了
+					//ジャンケンに１回かつと下記を表示しループを終了
 					System.out.println("勝つまでにかかった回数は" + janken_num + "回です");
+					scanner.close();
 					return;
 					//ここまで到達で無限ループ終了
 				}
@@ -101,6 +103,7 @@ public class Qes1_3 {
 				scanner.next();
 				//再度入力を促す
 			}
+
 		}
 	}
 }
